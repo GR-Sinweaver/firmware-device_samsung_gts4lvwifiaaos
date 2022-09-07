@@ -1,46 +1,59 @@
+1.
+```
 wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
 unzip platform-tools-latest-linux.zip -d ~
 
 sudo nano ~/.profile
---------------------------------------
+```
+2.
+```
 # add Android SDK platform tools to path
 if [ -d "$HOME/platform-tools" ] ; then
     PATH="$HOME/platform-tools:$PATH"
 fi
---------------------------------------
-
+```
+3.
+```
 source ~/.profile
-
 sudo apt-get install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libelf-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev openjdk-11-jdk repo brotli python-is-python3
-
+```
+4.
+```
 mkdir -p ~/bin
 mkdir -p ~/android/lineage
-
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
-
 sudo nano ~/.profile
---------------------------------------
+```
+5.
+```
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
---------------------------------------
-
+```
+6.
+```
 source ~/.profile
 git config --global user.email "gr.twostep@gmail.com"
 git config --global user.name "TWOSTEP"
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
-
+```
+7.
+```
 cd ~/android/lineage
 repo init -u https://github.com/LineageOS/android.git -b lineage-18.1
 repo sync
-
+```
+8.
+```
 source build/envsetup.sh
 breakfast gts4lvwifi
-
+```
+9.
+```
 mkdir ~/android/system_dump/
 cd ~/android/system_dump/
 wget ----
@@ -56,25 +69,33 @@ python sdat2img/sdat2img.py vendor.transfer.list vendor.new.dat vendor.img
 sudo rm system/vendor
 sudo mkdir system/vendor
 sudo mount vendor.img system/vendor/
-
+```
+10.
+```
 cd ~/android/lineage
 ./extract-files.sh ~/android/system_dump/
 source build/envsetup.sh
 breakfast gts4lvwifi
-
+```
+11.
+```
 cd ~/android/lineage/.repo/local_manifests/
 wget https://raw.githubusercontent.com/snappautomotive/firmware-local_manifest/main/snappautomotive.xml
 wget https://raw.githubusercontent.com/GRTWOSTEP/files/main/lineage-aaos.xml
 sudo nano roomservice.xml
 ```
+12.
+```
 REMOVE THESES LINES
 <project name="LineageOS/android_device_samsung_gts4lvwifi" path="device/samsung/gts4lvwifi" remote="github" />
 <project name="LineageOS/android_device_samsung_gts4lv-common" path="device/samsung/gts4lv-common" remote="github" />
 ```
+13.
+```
 cd ~/android/lineage
 repo sync -j 4 --force-sync
 brunch gts4lvwifi
-
+```
 
 _________________________________________________________________________________________________________________________________________________________________
 
