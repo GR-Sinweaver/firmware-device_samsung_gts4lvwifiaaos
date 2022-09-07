@@ -56,7 +56,7 @@ breakfast gts4lvwifi
 ```
 mkdir ~/android/system_dump/
 cd ~/android/system_dump/
-wget ----
+wget https://eu5.easyupload.io/download/4kx71k/1opd3x5p78zezvm9dw23m2i6d7g0bblo
 unzip path/to/lineage-*.zip system.transfer.list system.new.dat*
 unzip path/to/lineage-*.zip vendor.transfer.list vendor.new.dat*
 brotli --decompress --output=system.new.dat system.new.dat.br
