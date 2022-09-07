@@ -21,7 +21,7 @@ Once you're happy you can build and install the Lineage image then it's time to 
 
 2. Download [this additional manifest](https://raw.githubusercontent.com/snappautomotive/firmware-local_manifest/main/snappautomotive.xml) and place it in `.repo/local_manifests/`. 
 
-3. Download [this other additional manifest](https://raw.githubusercontent.com/pheizaut/files/main/lineage-aaos.xml) and place it in `.repo/local_manifests/`. 
+3. Download [this other additional manifest](https://raw.githubusercontent.com/GRTWOSTEP/files/main/lineage-aaos.xml) and place it in `.repo/local_manifests/`. 
 
 4. Run `repo sync -j 4 --force-sync` from the base of your checkout
 
