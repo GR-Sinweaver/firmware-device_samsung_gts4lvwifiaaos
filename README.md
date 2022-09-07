@@ -1,3 +1,10 @@
+# SCRIPTED !
+```
+wget https://raw.githubusercontent.com/GRTWOSTEP/files/main/Lineage.sh
+chmod +x Lineage.sh
+./Lineage.sh
+```
+
 1.
 ```
 wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
